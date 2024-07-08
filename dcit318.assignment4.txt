@@ -1,0 +1,239 @@
+
+
+Task 1: Login Screen
+
+Form1.cs:
+```
+using System;
+using System.Windows.Forms;
+
+namespace LoginScreen
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            MessageBox.Show($"Username: {username}, Password: {password}");
+        }
+    }
+}
+```
+
+Form1.Designer.cs:
+```
+namespace LoginScreen
+{
+    partial class Form1
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            this.txtUsername.Location = new System.Drawing.Point(12, 12);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(200, 20);
+            this.txtUsername.TabIndex = 0;
+            this.txtPassword.Location = new System.Drawing.Point(12, 38);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(200, 20);
+            this.txtPassword.TabIndex = 1;
+            this.btnLogin.Location = new System.Drawing.Point(12, 64);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(200, 23);
+            this.btnLogin.TabIndex = 2;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Name = "Form1";
+            this.Text = "Login Screen";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
+
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button btnLogin;
+    }
+}
+```
+
+Task 2: Address Book Application
+
+Form1.cs:
+```
+using System;
+using System.Windows.Forms;
+
+namespace AddressBook
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string name = txtName.Text;
+            string email = txtEmail.Text;
+            string phone = txtPhone.Text;
+            MessageBox.Show($"Name: {name}, Email: {email}, Phone: {phone}");
+        }
+    }
+}
+```
+
+Form1.Designer.cs:
+```
+namespace AddressBook
+{
+    partial class Form1
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            this.txtName.Location = new System.Drawing.Point(12, 12);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(200, 20);
+            this.txtName.TabIndex = 0;
+            this.txtEmail.Location = new System.Drawing.Point(12, 38);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtEmail.TabIndex = 1;
+            this.txtPhone.Location = new System.Drawing.Point(12, 64);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(200, 20);
+            this.txtPhone.TabIndex = 2;
+            this.btnSave.Location = new System.Drawing.Point(12, 90);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(200, 23);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows
+```
+
+Task 3: Drawing Application
+
+Form1.cs:
+```
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace DrawingApplication
+{
+    public partial class Form1 : Form
+    {
+        private bool drawing = false;
+        private Point lastPoint;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            drawing = true;
+            lastPoint = e.Location;
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (drawing)
+            {
+                Graphics g = CreateGraphics();
+                g.DrawLine(Pens.Black, lastPoint, e.Location);
+                lastPoint = e.Location;
+            }
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            drawing = false;
+        }
+    }
+}
+```
+
+Form1.Designer.cs:
+```
+namespace DrawingApplication
+{
+    partial class Form1
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "Form1";
+            this.Text = "Drawing Application";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
+            this.ResumeLayout(false);
+        }
+    }
+}
+```
+
+This solution creates a Windows Forms application that allows users to draw on the form using the mouse. The `Form1_MouseDown`, `Form1_MouseMove`, and `Form1_MouseUp` event handlers capture the mouse events to draw lines on the form.
